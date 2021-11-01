@@ -6,20 +6,20 @@ import {
   deleteContactRequest,
   deleteContactSuccess,
   deleteContactError,
-  fetchContactsRequest,
-  fetchContactsSuccess,
-  fetchContacstError,
+  fetchContactRequest,
+  fetchContactSuccess,
+  fetchContactError,
 } from './contacts-actions';
 
 axios.defaults.baseURL = 'http://localhost:4040';
 
 const fetchContacts = () => dispatch => {
-  dispatch(fetchContactsRequest());
+  dispatch(fetchContactRequest());
 
   axios
     .get('/contacts')
-    .then(({ data }) => dispatch(fetchContactsSuccess(data)))
-    .catch(error => dispatch(fetchContacstError(error)));
+    .then(({ data }) => dispatch(fetchContactSuccess(data)))
+    .catch(error => dispatch(fetchContactError(error)));
 };
 
 const addContact =
